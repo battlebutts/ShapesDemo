@@ -13,11 +13,13 @@ public class App {
 	
 		Scanner input = new Scanner(System.in);
 		System.out.println("Enter in the shape you would like to make! TRIANGLE RECTANGLE CIRCLE\n");
+		
 		TwoDShape<Double> shape;
 		
 		while(true) {
 			String choice = input.next();
 			String lwrChoice = choice.toLowerCase();
+			
 			if (lwrChoice.equals("rectangle")) {
 				System.out.print("Enter length (double): ");
 				Double length = input.nextDouble();
@@ -25,11 +27,13 @@ public class App {
 				Double width = input.nextDouble();
 				shape = new Rectangle<Double>(length,width);
 				break;
+				
 			}else if(lwrChoice.equals("circle")) {
 				System.out.print("Enter in radius (double): ");
 				Double radius = input.nextDouble();
 				shape = new Circle<Double>(radius);
 				break;
+				
 			}else if(lwrChoice.equals("triangle")) {
 				System.out.print("Enter base (double): ");
 				Double base = input.nextDouble();
@@ -37,11 +41,13 @@ public class App {
 				Double height = input.nextDouble();
 				shape = new Triangle<Double>(base,height);
 				break;
+				
 			}else {
 				System.out.println("Invalid shape entered.");
 			}
 		}
-		System.out.println(shape);
+		System.out.println(shape.area() + " " + shape.perimeter());
+		 
 		input.close();
 	}
 }
